@@ -4,7 +4,7 @@ import entity.CGangjwa;
 
 public class CGangjwaView {
 
-	public static CGangjwa getGangjwa() {
+	public CGangjwa getGangjwa() {
 
 		CGangjwa gangjwa = new CGangjwa();
 		gangjwa.setID(50);

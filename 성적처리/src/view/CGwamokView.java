@@ -4,7 +4,7 @@ import entity.CGwamok;
 
 public class CGwamokView {
 
-	public static CGwamok getGwamok() {
+	public CGwamok getGwamok() {
 
 		CGwamok gwamok = new CGwamok();
 		gwamok.setID(21);
