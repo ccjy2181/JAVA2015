@@ -20,6 +20,7 @@ public class CMain {
 
 	public static void main(String[] args) throws IOException {
 		// Login
+		// Å×½ºÆ®
 		CLoginView loginView = new CLoginView();
 		CMember member = loginView.login();
 		CLoginControl loginControl = new CLoginControl();
