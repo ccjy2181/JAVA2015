@@ -1,9 +1,8 @@
 package entity;
 
-import java.io.Serializable;
 import java.util.Vector;
 
-public class CGangjwa implements Serializable{
+public class CGangjwa extends CEntity{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -28,5 +27,15 @@ public class CGangjwa implements Serializable{
 	public void setGyosuID(int gyosuID) {this.gyosuID = gyosuID;}
 	public int getGwamokID() {return gwamokID;}
 	public void setGwamokID(int gwamokID) {this.gwamokID = gwamokID;}
+	@Override
+	void read() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	void write() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }
