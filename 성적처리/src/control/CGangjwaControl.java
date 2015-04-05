@@ -1,12 +1,13 @@
 package control;
 
+import entity.CEntity;
 import entity.CGangjwa;
 
 public class CGangjwaControl {
 
-	public CGangjwa processGangjwa(CGangjwa gangjwa) {
+	public CGangjwa processGangjwa(CEntity gangjwa) {
 
-		return gangjwa;
+		return (CGangjwa) gangjwa;
 	}
 
 }

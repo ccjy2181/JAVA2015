@@ -1,29 +1,15 @@
 package view;
 
-import java.util.Scanner;
-
+import entity.CEntity;
 import entity.CMember;
-
 
 public class CLoginView {
 	
-	public CMember login() {
-		Scanner scanner = new Scanner(System.in);
+	public CEntity login() {
 		
-		// input from keyboard
-		CMember member = new CMember();
-//		String userID = scanner.next();
-		member.setUserID("userID");
-		
-//		String password = scanner.next();
-		member.setPassword("password");
-
-		// close scanner
-		scanner.close();
-		return member;
-		
+		CEntity member = new CMember();
+		member.read();
+		return member;	
 	}
-
-
 	
 }

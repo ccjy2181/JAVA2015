@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.ObjectInputStream;
 
-public class DAO {
+public class ObjectDAO implements IDAO {
 	public Object read(String filename) { 
 		Object object = null;
 		try {
