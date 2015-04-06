@@ -1,9 +1,10 @@
 package control;
 
 import entity.CEntity;
+import control.CControl;
 import entity.CMember;
 
-public class CLoginControl {
+public class CLoginControl extends CControl {
 
 	private CMember member;
 

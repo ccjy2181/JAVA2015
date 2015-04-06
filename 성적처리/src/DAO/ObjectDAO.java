@@ -9,7 +9,7 @@ import java.io.ObjectInputStream;
 import entity.CEntity;
 
 public class ObjectDAO implements IDAO {
-	public Object read(CEntity entity, String filename) { 
+	public CEntity read(CEntity entity, String filename) { 
 		Object object = null;
 		try {
 			ObjectInputStream in;
@@ -19,7 +19,7 @@ public class ObjectDAO implements IDAO {
 		}  catch (IOException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}	
-		return object;
+		return entity;
 	}
 	public void write(Object object, String filename) {
 		// serialize
