@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 import java.util.Vector;
 
 public class CGangjwa extends CEntity{
@@ -34,7 +35,7 @@ public class CGangjwa extends CEntity{
 	public int[] getGwamokID() {return gwamokID;}
 	public void setGwamokID(int[] gwamokID) {this.gwamokID = gwamokID;}
 	@Override
-	public void read() {
+	public void read(Scanner scanner) {
 		// TODO Auto-generated method stub
 		String read = null;
 		int ID[] = new int[10];

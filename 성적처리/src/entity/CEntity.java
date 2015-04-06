@@ -1,11 +1,12 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.Scanner;
 
-abstract public class CEntity implements Serializable{
+public class CEntity implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	public abstract void read();
-	public abstract void write(String filename);
+	public void read(Scanner scanner) {}
+	public void write(String filename) {}
 
 }

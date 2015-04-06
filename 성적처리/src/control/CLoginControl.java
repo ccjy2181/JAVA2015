@@ -7,7 +7,7 @@ public class CLoginControl {
 
 	private CMember member;
 
-	public CMember login(CEntity member) {
+	public CEntity login(CEntity member) {
 
 		this.member = (CMember)member;
 		return this.member;

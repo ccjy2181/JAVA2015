@@ -29,16 +29,17 @@ public class CMain {
 		CLoginControl loginControl = new CLoginControl();
 		member = loginControl.login(member);
 		IDAO memberDAO = new TextDAO();
-		memberDAO.write(member, "member");
-		member = (CMember) memberDAO.read("member");
-
+//		memberDAO.write(member, "member");
+//		CMember member = new CMember();
+		member = (CMember) memberDAO.read(member.getClass(), "member");
+/*
 		// 과목 개설
 		CGwamokView gwamokview = new CGwamokView();
 		CEntity gwamok = gwamokview.getGwamok();
 		CGwamokControl gwamokcontrol = new CGwamokControl();
 		gwamok = gwamokcontrol.processGwamok(gwamok);
 		IDAO gwamokDAO = new TextDAO();
-		gwamokDAO.write(gwamok, "gwamok");
+//		gwamokDAO.write(gwamok, "gwamok");
 		gwamok = (CGwamok) gwamokDAO.read("gwamok");
 
 		// 강좌 개설
@@ -47,7 +48,7 @@ public class CMain {
 		CGangjwaControl gangjwacontrol = new CGangjwaControl();
 		gangjwa = gangjwacontrol.processGangjwa(gangjwa);
 		IDAO gangjwaDAO = new TextDAO();
-		gangjwaDAO.write(gangjwa, "gangjwa");
+//		gangjwaDAO.write(gangjwa, "gangjwa");
 		gangjwa = (CGangjwa) gangjwaDAO.read("gangjwa");
 		
 		// 수강 신청
@@ -58,6 +59,6 @@ public class CMain {
 		IDAO sugangDAO = new ObjectDAO();
 		sugangDAO.write(sugang, "sugang");
 		sugang = (CSugang) sugangDAO.read("sugang");
-	}
+*/	}
 
 }
