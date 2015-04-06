@@ -6,8 +6,10 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.ObjectInputStream;
 
+import entity.CEntity;
+
 public class ObjectDAO implements IDAO {
-	public Object read(Class clazz, String filename) { 
+	public Object read(CEntity entity, String filename) { 
 		Object object = null;
 		try {
 			ObjectInputStream in;

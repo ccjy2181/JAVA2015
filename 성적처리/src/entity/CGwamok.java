@@ -1,11 +1,10 @@
 package entity;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class CGwamok extends CEntity {
 	
@@ -24,7 +23,7 @@ public class CGwamok extends CEntity {
 	public int[] getHakjeom() {return hakjeom;}
 	public void setHakjeom(int[] hakjeom) {this.hakjeom = hakjeom;}
 	@Override
-	public void read() {
+	public void read(Scanner scanner) {
 		// TODO Auto-generated method stub
 		String read = null;
 		int ID[] = new int[10];
@@ -52,27 +51,8 @@ public class CGwamok extends CEntity {
 		setHakjeom(hakjeom);
 	}
 	@Override
-	public void write(String filename) {
-		int ID[];
-		String name[];
-		int hakjeom[];
-		ID = getID();
-		name = getName();
-		hakjeom = getHakjeom();
-		try {
-			FileWriter fw = new FileWriter("gwamokprint.txt");
-			BufferedWriter writer = new BufferedWriter(fw);
-			for(int index = 0; name[index] != null; index++ ){
-				writer.write(ID[index]+" ");
-				writer.write(name[index]+" ");
-				writer.write(hakjeom[index]+" ");
-				writer.newLine();
-			}
-			writer.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	public void write() {
+		
 	}
 	
 }

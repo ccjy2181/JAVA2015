@@ -8,7 +8,7 @@ public class CGwamokView {
 	public CEntity getGwamok() {
 
 		CEntity gwamok = new CGwamok();
-		gwamok.read();
+		gwamok.read(null);
 		return gwamok;
 	}
 
