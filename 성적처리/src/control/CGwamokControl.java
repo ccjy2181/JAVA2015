@@ -1,12 +1,13 @@
 package control;
 
+import entity.CEntity;
 import entity.CGwamok;
 
 public class CGwamokControl {
 
-	public CGwamok processGwamok(CGwamok gwamok) {
+	public CGwamok processGwamok(CEntity gwamok) {
 
-		return gwamok;
+		return (CGwamok) gwamok;
 	}
 
 }

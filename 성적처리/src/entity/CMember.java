@@ -1,9 +1,10 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.Scanner;
 
 // Entity class or Value class
-public class CMember implements Serializable {
+public class CMember extends CEntity implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	// attributes
@@ -15,4 +16,11 @@ public class CMember implements Serializable {
 	public String getPassword() {return password;}
 	public void setPassword(String password) {this.password = password;}
 
+	public void read(Scanner scanner) {
+		// TODO Auto-generated method stub
+		userID = scanner.next();
+		password = scanner.next();
+	}
+	public void write() {
+	}
 }
