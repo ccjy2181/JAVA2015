@@ -5,7 +5,6 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import entity.CEntity;
-import entity.CLoginInfo;
 
 public class TextDAO implements IDAO{
 	private Scanner scanner;
@@ -22,9 +21,8 @@ public class TextDAO implements IDAO{
 	}	
 	
 	@Override
-	public CEntity read() {
+	public CEntity read(CEntity entity) {
 		// TODO Auto-generated method stub
-		CEntity entity = new CEntity();
 		entity.read(scanner);
 		return entity;
 	}

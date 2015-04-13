@@ -21,10 +21,14 @@ public class CLoginInfo extends CEntity implements Serializable {
 	public ELoginResult geteLoginResult() {		return eLoginResult;	}
 	public void seteLoginResult(ELoginResult eLoginResult) {		this.eLoginResult = eLoginResult;	}
 
-	public void read(Scanner scanner) {
+	public void read(Scanner scanner) throws NullPointerException{
 		// TODO Auto-generated method stub
-		userID = scanner.next();
-		password = scanner.next();
+		if(scanner.hasNext()){
+			userID = scanner.next();
+			password = scanner.next();
+		} else {
+			this.seteLoginResult(ELoginResult.idError);
+		}
 	}
 	public void write() {
 	}

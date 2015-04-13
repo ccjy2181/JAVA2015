@@ -8,21 +8,28 @@ import entity.CLoginInfo.ELoginResult;
 public class CLoginControl extends CControl {
 	public CLoginInfo login(CLoginInfo loginInfo) {
 		try {
-			CLoginInfo loginInfoDAO;
+			CLoginInfo loginInfoDAO = new CLoginInfo();
 			this.getDao().connect("member.txt");
-			while(true) {
-				loginInfoDAO = (CLoginInfo)this.getDao().read();
-				if(loginInfoDAO.getUserID() == loginInfo.getUserID()){
-					if(loginInfoDAO.getPassword() == loginInfo.getPassword()){
+			loginInfo.seteLoginResult(ELoginResult.error);
+			loginInfoDAO.seteLoginResult(ELoginResult.error);
+			while(!loginInfo.geteLoginResult().equals(ELoginResult.idError)) {
+				loginInfoDAO = (CLoginInfo)this.getDao().read(loginInfoDAO);
+				loginInfo.seteLoginResult(loginInfoDAO.geteLoginResult());
+				if(loginInfoDAO.getUserID().equals(loginInfo.getUserID())){
+					if(loginInfoDAO.getPassword().equals(loginInfo.getPassword())){
 						loginInfo.seteLoginResult(ELoginResult.success);
+					break;
+					} else {
+						loginInfo.seteLoginResult(ELoginResult.passwordError);
+					break;
 					}
 				}
 			}
-			this.getDao().disconnect();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		this.getDao().disconnect();
 		return loginInfo;
 	}
 }
