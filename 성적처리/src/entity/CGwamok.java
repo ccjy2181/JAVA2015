@@ -51,7 +51,7 @@ public class CGwamok extends CEntity {
 		setHakjeom(hakjeom);
 	}
 	@Override
-	public void write() {
+	public void write(Scanner scanner) {
 		
 	}
 	

@@ -2,34 +2,40 @@ package control;
 
 import java.io.FileNotFoundException;
 
-import entity.CLoginInfo;
-import entity.CLoginInfo.ELoginResult;
+import entity.CUser;
+import entity.VLogin;
+import entity.VUser;
+import entity.VUser.ELoginResult;
 
 public class CLoginControl extends CControl {
-	public CLoginInfo login(CLoginInfo loginInfo) {
+	public VUser login(VLogin vLogin) {
+		VUser vUser = new VUser();
+		CUser user = new CUser();
+		vUser.seteLoginResult(ELoginResult.success);
 		try {
-			CLoginInfo loginInfoDAO = new CLoginInfo();
 			this.getDao().connect("member.txt");
-			loginInfo.seteLoginResult(ELoginResult.error);
-			loginInfoDAO.seteLoginResult(ELoginResult.error);
-			while(!loginInfo.geteLoginResult().equals(ELoginResult.idError)) {
-				loginInfoDAO = (CLoginInfo)this.getDao().read(loginInfoDAO);
-				loginInfo.seteLoginResult(loginInfoDAO.geteLoginResult());
-				if(loginInfoDAO.getUserID().equals(loginInfo.getUserID())){
-					if(loginInfoDAO.getPassword().equals(loginInfo.getPassword())){
-						loginInfo.seteLoginResult(ELoginResult.success);
-					break;
+			while(this.getDao().hasNext()) {
+				user = (CUser)this.getDao().read(user);
+				if(user.getUserID().equals(vLogin.getUserID())){
+					if(user.getPassword().equals(vLogin.getPassword())){
+						vUser.seteLoginResult(ELoginResult.success);
+						vUser.setName(user.getName());
+						vUser.setUserID(user.getUserID());
 					} else {
-						loginInfo.seteLoginResult(ELoginResult.passwordError);
-					break;
+						vUser.seteLoginResult(ELoginResult.passwordError);
 					}
+					this.getDao().disconnect();
+					return vUser;
 				}
 			}
+			this.getDao().disconnect();
+			vUser.seteLoginResult(ELoginResult.idError);
+			return vUser;
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+//			e.printStackTrace();  // 빨간색 에러 출력부분
+			vUser.seteLoginResult(ELoginResult.fileNotFound);
+			return vUser;
 		}
-		this.getDao().disconnect();
-		return loginInfo;
 	}
 }
