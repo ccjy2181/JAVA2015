@@ -22,5 +22,5 @@ public class CLoginView extends CView{
 		// close scanner
 		scanner.close();
 	}
-	
+
 }

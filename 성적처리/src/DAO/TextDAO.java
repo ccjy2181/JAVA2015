@@ -21,7 +21,19 @@ public class TextDAO implements IDAO{
 	}	
 	
 	@Override
-	public CEntity read(CEntity entity) {
+	public CEntity read(CEntity entity, String ID) {
+		// TODO Auto-generated method stub
+		while(scanner.hasNext()){
+			entity.read(scanner);
+			if(entity.getID().equals(ID)){
+				return entity;
+			}
+		}
+		return null;
+	}
+	
+	@Override
+	public CEntity sugangRead(CEntity entity, String ID) {
 		// TODO Auto-generated method stub
 		entity.read(scanner);
 		return entity;

@@ -11,13 +11,13 @@ public class CGwamok extends CEntity {
 	private static final long serialVersionUID = 1L;
 	
 	// attrubutes
-	private int[] ID;
+	private String ID;
 	private String[] name;
 	private int[] hakjeom;
 	
 	// setters & getters
-	public int[] getID() {return ID;}
-	public void setID(int[] iD) {ID = iD;}
+	public String getID() {return ID;}
+	public void setID(String iD) {ID = iD;}
 	public String[] getName() {return name;}
 	public void setName(String[] name) {this.name = name;}
 	public int[] getHakjeom() {return hakjeom;}
@@ -46,7 +46,6 @@ public class CGwamok extends CEntity {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		setID(ID);
 		setName(name);
 		setHakjeom(hakjeom);
 	}
