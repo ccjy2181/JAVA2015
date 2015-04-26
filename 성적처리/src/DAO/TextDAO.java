@@ -2,10 +2,12 @@ package DAO;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 import java.util.Vector;
 
 import entity.CEntity;
+import entity.CGangjwa;
 
 public class TextDAO implements IDAO{
 	private Scanner scanner;
@@ -34,7 +36,7 @@ public class TextDAO implements IDAO{
 	}
 
 	@Override
-	public void write(CEntity entity) {
+	public void write(CEntity entity) throws IOException {
 		// TODO Auto-generated method stub
 		entity.write(scanner);
 	}
@@ -42,6 +44,12 @@ public class TextDAO implements IDAO{
 	@Override
 	public Vector<CEntity> readAll() {
 		// TODO Auto-generated method stub
-		return null;
+		Vector<CEntity> ventity = new Vector<CEntity>();
+		while (scanner.hasNext()) {
+			CGangjwa gangjwa = new CGangjwa();
+			gangjwa.read(scanner);
+			ventity.add(gangjwa);
+		}	
+		return ventity;
 	}
 }

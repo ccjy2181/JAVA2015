@@ -19,7 +19,6 @@ public class CUser extends CEntity implements Serializable{
 		// TODO Auto-generated method stub
 		ID = scanner.next();
 		password = scanner.next();
-		name = scanner.next();
 	}
 	public void write(Scanner scanner) {
 	}
