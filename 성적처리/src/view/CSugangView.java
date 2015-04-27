@@ -1,29 +1,28 @@
 package view;
 
-import java.io.IOException;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.Vector;
 
-import control.CSugangControl;
+import control.CGangjwaControl;
 import entity.CGangjwa;
-import entity.VSugang;
+import entity.CSugang;
 import entity.VUser;
 import exception.PasswordNotMatchException;
-import exception.SugangCodeNotFoundException;
 import exception.UserIDNotFoundException;
 
 public class CSugangView  extends CView{
 
+/*
 	public void sugangSincheong(VUser vUser)
 			throws UserIDNotFoundException,
 			PasswordNotMatchException,
 			IOException,
 			SugangCodeNotFoundException {
-		Scanner scanner = new Scanner(System.in);
 		VSugang vSugang = new VSugang();
 		// show Gangjwa List
-		CSugangControl sugangControl = (CSugangControl)this.getControl();
-		Vector<CGangjwa> gangjwaList = sugangControl.getCGanajwaList();
+		CGangjwaControl gangjwaControl = (CGangjwaControl)this.getControl();
+		Vector<CGangjwa> gangjwaList = gangjwaControl.getCGanajwaList();
 		// select Gangjwa
 		try{
 			for (int index=0; !gangjwaList.elementAt(index).equals(null); index++){
@@ -31,17 +30,47 @@ public class CSugangView  extends CView{
 			}
 		} catch (ArrayIndexOutOfBoundsException e) {	}
 		System.out.println("신청하려는 강좌번호를 입력하세요.");
+		Scanner scanner = new Scanner(System.in);
 		vSugang.setUserID(vUser.getUserID());
 		vSugang.setGangjwaID(scanner.next());
 		// confirm sugangSincheong
 		
 		// show result
-		vSugang = sugangControl.selectGangjwa(vSugang);
+		vSugang = gangjwaControl.selectGangjwa(vSugang);
 		System.out.println(vSugang.getGangjwaID()+" "+vSugang.getGangjwaName()+" 강좌를 수강신청하였습니다.");
 		scanner.close();
 		
 //		vSugang = (VSugang)
-//			((CSugangControl) this.getControl() ).input(vUser); // 강제 타입 캐스팅
+//			((CGangjwaControl) this.getControl() ).input(vUser); // 강제 타입 캐스팅
 		System.out.println("Gangjwa List : " + vSugang.getGangjwaID() + "," + vSugang.getGangjwaName() );
+	}
+*/
+	public void sugangSincheong(VUser vUser)
+			throws UserIDNotFoundException,
+			PasswordNotMatchException {
+		// show Gangjwa List
+		try {
+			CGangjwaControl gangjwaControl = (CGangjwaControl)this.getControl();
+			Vector<CGangjwa> gangjwaList = gangjwaControl.getCGanajwaList();
+			for(CGangjwa gangjwa: gangjwaList){
+				System.out.println("강좌 ID : " + gangjwa.getID() +" "+ gangjwa.getName());
+			}
+			Scanner scanner = new Scanner(System.in);
+			String gangjwaID = scanner.next();
+			for(CGangjwa gangjwa : gangjwaList){
+				if(gangjwa.getID().equals(gangjwaID)){
+					CSugang sugang =
+							new CSugang(vUser.getUserID(), gangjwa.getID());
+					gangjwaControl.sugangSincheong(sugang);
+					
+				}
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		// select Gangjwa
+		// confirm sugangSincheong
+		// show result
 	}
 }

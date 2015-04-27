@@ -1,6 +1,7 @@
 package entity;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -50,8 +51,9 @@ public class CGwamok extends CEntity {
 		setHakjeom(hakjeom);
 	}
 	@Override
-	public void write(Scanner scanner) {
+	public void write(BufferedWriter writer) {
 		
 	}
+
 	
 }

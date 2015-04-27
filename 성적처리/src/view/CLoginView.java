@@ -26,8 +26,6 @@ public class CLoginView extends CView{
 		VUser vUser = (VUser)
 			((CLoginControl) this.getControl() ).login(vLogin); // 강제 타입 캐스팅
 		System.out.println(vUser.getUserID()+"님 환영합니다.");
-
-		// close scanner
 		return vUser;
 
 	}

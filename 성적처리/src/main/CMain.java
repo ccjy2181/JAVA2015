@@ -7,7 +7,7 @@ import view.CSugangView;
 import DAO.IDAO;
 import DAO.TextDAO;
 import control.CLoginControl;
-import control.CSugangControl;
+import control.CGangjwaControl;
 import entity.VUser;
 
 
@@ -20,7 +20,7 @@ public class CMain {
 			CLoginView loginView = new CLoginView();
 			CSugangView sugangView = new CSugangView();
 			CLoginControl loginControl = new CLoginControl();
-			CSugangControl sugangControl = new CSugangControl();
+			CGangjwaControl sugangControl = new CGangjwaControl();
 			IDAO dao = new TextDAO();
 			// association
 			loginView.setControl(loginControl);

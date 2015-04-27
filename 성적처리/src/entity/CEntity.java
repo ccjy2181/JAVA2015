@@ -1,5 +1,6 @@
 package entity;
 
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.Scanner;
@@ -13,5 +14,5 @@ abstract public class CEntity implements Serializable{
 	public void setID(String ID) {		this.ID = ID;	}
 	
 	public void read(Scanner scanner) {}
-	public void write(Scanner scanner) throws IOException {}
+	public void write(BufferedWriter writer) throws IOException {}
 }

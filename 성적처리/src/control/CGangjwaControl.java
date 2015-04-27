@@ -12,7 +12,7 @@ import entity.VUser;
 import exception.SugangCodeNotFoundException;
 import exception.UserIDNotFoundException;
 
-public class CSugangControl extends CControl {
+public class CGangjwaControl extends CControl {
 	
 	public VSugang input(VUser vUser) throws FileNotFoundException, UserIDNotFoundException {
 		VSugang vSugang = new VSugang();
@@ -36,19 +36,18 @@ public class CSugangControl extends CControl {
 
 	public Vector<CGangjwa> getCGanajwaList() throws FileNotFoundException {
 		// TODO Auto-generated method stub
-		this.getDao().connect("gangjwa.txt");
-		Vector<CEntity> entityList = this.getDao().readAll();
-		this.getDao().disconnect();	
-		
-		// type cast
 		Vector<CGangjwa> gangjwaList = new Vector<CGangjwa>();
-		for (CEntity entity: entityList) {
-			gangjwaList.add((CGangjwa)entity);
+		this.getDao().connect("gangjwa.txt");
+		while(this.getDao().hasNext()){
+			CGangjwa gangjwa = new CGangjwa();
+			gangjwa = (CGangjwa) this.getDao().readNext(gangjwa);
+			gangjwaList.add(gangjwa);
 		}
+		this.getDao().disconnect();	
 		return gangjwaList;
 	}
 	
-	public VSugang selectGangjwa(VSugang vSugang) throws IOException, SugangCodeNotFoundException {
+	public VSugang selectCGangjwa(VSugang vSugang) throws IOException, SugangCodeNotFoundException {
 		// TODO Auto-generated method stub
 
 		CGangjwa gangjwa = new CGangjwa();
@@ -67,6 +66,11 @@ public class CSugangControl extends CControl {
 		this.getDao().write(sugang);
 		
 		return vSugang;
+	}
+
+	public void sugangSincheong(CSugang sugang) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
