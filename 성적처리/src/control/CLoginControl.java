@@ -15,7 +15,7 @@ public class CLoginControl extends CControl {
 			IOException {
 		VUser vUser = new VUser();
 		CUser user = new CUser();
-			this.getDao().connect("member.txt");
+			this.getDao().connect("member.txt","r");
 			user = (CUser)this.getDao().read(user,vLogin.getUserID());
 			this.getDao().disconnect();
 			// result 정리 필요 !!!!!!!!!!!!!!!!!!!!!!

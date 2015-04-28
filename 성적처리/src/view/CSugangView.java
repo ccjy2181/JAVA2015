@@ -1,6 +1,7 @@
 package view;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 import java.util.Vector;
 
@@ -47,7 +48,7 @@ public class CSugangView  extends CView{
 */
 	public void sugangSincheong(VUser vUser)
 			throws UserIDNotFoundException,
-			PasswordNotMatchException {
+			PasswordNotMatchException, IOException {
 		// show Gangjwa List
 		try {
 			CGangjwaControl gangjwaControl = (CGangjwaControl)this.getControl();
@@ -56,6 +57,7 @@ public class CSugangView  extends CView{
 				System.out.println("강좌 ID : " + gangjwa.getID() +" "+ gangjwa.getName());
 			}
 			Scanner scanner = new Scanner(System.in);
+			System.out.println("신청하려는 강좌번호를 입력하세요.");
 			String gangjwaID = scanner.next();
 			for(CGangjwa gangjwa : gangjwaList){
 				if(gangjwa.getID().equals(gangjwaID)){
@@ -65,6 +67,7 @@ public class CSugangView  extends CView{
 					
 				}
 			}
+			scanner.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -2,7 +2,6 @@ package DAO;
 
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -20,9 +19,9 @@ public class TextDAO implements IDAO{
 		if(this.mode.equals("r")){
 			this.scanner = new Scanner(new File(name));	
 		} else if(this.mode.equals("w")){		// w는 덮어쓰기
-			 this.writer = new BufferedWriter(new FileWriter(name, true));
-		} else if(this.mode.equals("w+")){		// w+ 는 붙여쓰기
 			 this.writer = new BufferedWriter(new FileWriter(name, false));
+		} else if(this.mode.equals("w+")){		// w+ 는 붙여쓰기
+			 this.writer = new BufferedWriter(new FileWriter(name, true));
 		}
 	}
 

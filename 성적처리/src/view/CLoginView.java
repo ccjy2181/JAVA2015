@@ -1,6 +1,6 @@
 package view;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 import control.CLoginControl;
@@ -12,9 +12,9 @@ import exception.UserIDNotFoundException;
 public class CLoginView extends CView{
 	
 	public VUser login()
-			throws FileNotFoundException,
-			UserIDNotFoundException,
-			PasswordNotMatchException {
+			throws UserIDNotFoundException,
+			PasswordNotMatchException,
+			IOException {
 		Scanner scanner = new Scanner(System.in);
 		VLogin vLogin = new VLogin();
 		System.out.println("아이디를 입력하세요.");
