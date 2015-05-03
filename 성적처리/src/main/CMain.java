@@ -3,11 +3,12 @@ package main;
 
 import view.CExceptionView;
 import view.CLoginView;
+import view.CMenuView;
 import view.CSugangView;
 import DAO.IDAO;
 import DAO.TextDAO;
-import control.CLoginControl;
 import control.CGangjwaControl;
+import control.CLoginControl;
 import entity.VUser;
 
 
@@ -27,9 +28,10 @@ public class CMain {
 			sugangView.setControl(sugangControl);
 			loginControl.setDao(dao);
 			sugangControl.setDao(dao);
+			CMenuView menuView = new CMenuView();
 			// start
 			VUser vUser = loginView.login();
-			sugangView.sugangSincheong(vUser);
+			menuView.menu(vUser);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			CExceptionView.processException(e);

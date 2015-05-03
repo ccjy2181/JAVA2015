@@ -13,8 +13,7 @@ public class CLoginView extends CView{
 	
 	public VUser login()
 			throws UserIDNotFoundException,
-			PasswordNotMatchException,
-			IOException {
+			PasswordNotMatchException {
 		Scanner scanner = new Scanner(System.in);
 		VLogin vLogin = new VLogin();
 		System.out.println("아이디를 입력하세요.");
@@ -23,10 +22,17 @@ public class CLoginView extends CView{
 		vLogin.setPassword(scanner.next());
 //		vLogin.setUserID("id5");
 //		vLogin.setPassword("pw5");
-		VUser vUser = (VUser)
-			((CLoginControl) this.getControl() ).login(vLogin); // 강제 타입 캐스팅
-		System.out.println(vUser.getUserID()+"님 환영합니다.");
-		return vUser;
+		VUser vUser;
+		try {
+			vUser = (VUser)
+			((CLoginControl) this.getControl() ).login(vLogin);
+			System.out.println(vUser.getUserID()+"님 환영합니다.");
+			return vUser;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		} // 강제 타입 캐스팅
 
 	}
 

@@ -18,9 +18,9 @@ public class TextDAO implements IDAO{
 		this.mode = mode;
 		if(this.mode.equals("r")){
 			this.scanner = new Scanner(new File(name));	
-		} else if(this.mode.equals("w")){		// w는 덮어쓰기
+		} else if(this.mode.equals("w")){		// w는 덮어쓰기 - create new file
 			 this.writer = new BufferedWriter(new FileWriter(name, false));
-		} else if(this.mode.equals("w+")){		// w+ 는 붙여쓰기
+		} else if(this.mode.equals("w+")){		// w+ 는 붙여쓰기 - append item to existing file
 			 this.writer = new BufferedWriter(new FileWriter(name, true));
 		}
 	}

@@ -1,7 +1,6 @@
 package entity;
 
 import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -29,7 +28,9 @@ public class CSugang extends CEntity{
 	}
 	
 	@Override
-	public void write(BufferedWriter writer) throws IOException {
-		
+	public void write(BufferedWriter bufferWriter) throws IOException {
+		bufferWriter.write(this.userID+" ");
+		bufferWriter.write(this.gangjwaID);
+		bufferWriter.newLine();
 	}
 }

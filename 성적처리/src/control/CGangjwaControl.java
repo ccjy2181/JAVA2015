@@ -43,9 +43,24 @@ public class CGangjwaControl extends CControl {
 		this.getDao().disconnect();	
 		return gangjwaList;
 	}
-	public void sugangSincheong(CSugang sugang) {
+	public void sugangSincheong(CSugang sugang) throws IOException {
 		// TODO Auto-generated method stub
-		
+		this.getDao().connect("sugang.txt","w+");
+		this.getDao().write(sugang);
+		this.getDao().disconnect();
 	}
 	
+	public Vector<CSugang> getsugangList() throws IOException {
+		Vector<CSugang> sugangList = new Vector<CSugang>();
+		this.getDao().connect("sugang.txt", "r");
+		while(this.getDao().hasNext()){
+			CGangjwa sugang = new CGangjwa();
+			sugang = (CGangjwa) this.getDao().readNext(sugang);
+			System.out.println("수강신청한 내용 : "+ sugang.getID()+ " "+ sugang.getName());
+		}
+		this.getDao().disconnect();
+		return sugangList;
+		
+	}
+
 }
