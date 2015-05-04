@@ -1,4 +1,4 @@
-package entity;
+package valueObject;
 
 public class VUser {
 	private String userID;

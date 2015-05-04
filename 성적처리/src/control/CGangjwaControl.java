@@ -4,10 +4,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Vector;
 
+import valueObject.VSugang;
+import valueObject.VUser;
 import entity.CGangjwa;
 import entity.CSugang;
-import entity.VSugang;
-import entity.VUser;
 import exception.UserIDNotFoundException;
 
 public class CGangjwaControl extends CControl {
